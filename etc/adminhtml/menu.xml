@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AHT_Blog::blog" title="Blog" translate="Blog" module="AHT_Blog" sortOrder="50"   resource="AHT_Blog::blog"/>
+        <add id="AHT_Blog::index" title="Blog" module="AHT_Blog" parent="AHT_Blog::blog" action="blog/index/" resource="AHT_Blog::index" sortOrder="55" />
+        <add id="AHT_Blog::category" title="Comment" module="AHT_Blog" parent="AHT_Blog::blog" action="blog/comment/" resource="AHT_Blog::category" sortOrder="55" />
+    </menu>
+</config>
