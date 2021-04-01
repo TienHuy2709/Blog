@@ -52,7 +52,7 @@ class BlogRepository implements BlogRepositoryInterface
         PostCollectionFactory $PostCollectionFactory
     ) {
         $this->resource = $resource;
-        $this->PostFactory = $PostFaBoctory;
+        $this->PostFactory = $PostFactory;
         $this->PostCollectionFactory = $PostCollectionFactory;
         // $this->searchResultsFactory = $searchResultsFactory;
         // $this->collectionProcessor = $collectionProcessor ?: $this->getCollectionProcessor();
@@ -94,5 +94,70 @@ class BlogRepository implements BlogRepositoryInterface
         $result = $Post;
         return $result;
     }
+    /**
+     * function get all data
+     *
+     * @return \AHT\Blog\Model\ResourceModel\Blog
+     */
+    public function getList()
+    {
+        $collection = $this->PostCollectionFactory->create();
+        return $collection->getData();
+    }
 
+    /**
+     * Create post.
+     *
+     * @return \AHT\Blog\Model\ResourceModel\Blog
+     *
+     * @throws LocalizedException
+     */
+    public function createPost(BlogInterface $post)
+    {
+        try {
+            $this->resource->save($post);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(
+                __('Could not save the Post: %1', $exception->getMessage()),
+                $exception
+            );
+        }
+        return json_encode(array(
+            "status" => 200,
+            "message" => $post->getData()
+        ));
+
+    }
+
+
+    public function updatePost(String $id, BlogInterface $post)
+    {
+
+        try {
+            $objPost = $this->PostFactory->create();
+            $id = intval($id);
+            $objPost->setId($id);
+            //Set full collum
+            $objPost->setData($post->getData());
+            $this->resource->save($objPost);
+
+            return $objPost->getData();
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(
+                __('Could not save the Post: %1', $exception->getMessage()),
+                $exception
+            );
+        }
+    }
+
+    public function deleteById($postId)
+    {
+        $id = intval($postId);
+        if($this->resource->delete($this->getById($id))) {
+            return json_encode([
+                "status" => 200,
+                "message" => "Successfully"
+            ]);
+        }
+    }
 }

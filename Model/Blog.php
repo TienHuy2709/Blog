@@ -2,9 +2,9 @@
 namespace AHT\Blog\Model;
 
 use \Magento\Framework\DataObject\IdentityInterface;
+use AHT\Blog\Api\Data\BlogInterface;
 
-// class Blog extends AbstractModel implements IdentityInterface
-class Blog extends \Magento\Framework\Model\AbstractModel {
+class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, BlogInterface {
     const CACHE_TAG = 'aht_blog_post';
 
     protected $_cacheTag = 'aht_blog_post';
