@@ -1,0 +1,27 @@
+
+<?php
+$item = $block->getEditRecord();
+$urlImage = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+$image = $urlImage . 'blog/index/' . $item['images'];
+
+?>
+<div class="container">
+    <h2><?php echo $item['title'] ?></h2>
+    <img src="<?php echo $image?>" width="240" alt="Demo image Blog">
+    <div class="blog-description">
+        <?php echo $item['description'] ?>
+    </div>
+
+    <div class="blog-content">
+        <?php
+        /*Gan noi dung content*/
+        $content = $item['content'];
+        /*Khoi tao ham co san trong magento */
+        $om = \Magento\Framework\App\ObjectManager::getInstance();
+        /*Goi den function de lay url-media cho cac the co 'media url'*/
+        $filterManager = $om->get('Magento\Cms\Model\Template\FilterProvider')->getPageFilter()->filter($content);
+        /*hien thi lai noi dung sau khi thay doi media url*/
+        echo $filterManager;
+        ?>
+    </div>
+</div>
