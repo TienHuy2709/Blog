@@ -17,6 +17,8 @@
         <arguments>
             <argument name="mainTable" xsi:type="string">aht_comment</argument>
             <argument name="resourceModel" xsi:type="string">AHT\Blog\Model\ResourceModel\Comment</argument>
+            <argument name="eventPrefix" xsi:type="string">AHT_Blog_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">field_grid_collection</argument>
         </arguments>
     </virtualType>
 

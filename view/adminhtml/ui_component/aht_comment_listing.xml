@@ -13,6 +13,13 @@
     </argument>
     <!-- ADD new button -->
     <settings>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Comment</label>
+            </button>
+        </buttons>
         <spinner>aht_comment_columns</spinner>
         <deps>
             <dep>aht_comment_listing.aht_comment_listing_data_source</dep>
@@ -26,7 +33,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>AHT_Blog::page</aclResource>
+        <aclResource>AHT_Blog::comment</aclResource>
         <dataProvider class="AHT\Blog\Ui\Component\DataProvider" name="aht_comment_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
@@ -107,7 +114,7 @@
             </editorConfig>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">
-                    <item name="provider" xsi:type="string">aht_comment_listing_.aht_comment_listing.aht_comment_columns_editor</item>
+                    <item name="provider" xsi:type="string">aht_comment_listing.aht_comment_listing.aht_comment_columns_editor</item>
                     <item name="target" xsi:type="string">startEdit</item>
                     <item name="params" xsi:type="array">
                         <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -134,12 +141,12 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-<!--                    <item name="editor" xsi:type="array">-->
-<!--                        <item name="editorType" xsi:type="string">text</item>-->
-<!--                        <item name="validation" xsi:type="array">-->
-<!--                            <item name="required-entry" xsi:type="boolean">true</item>-->
-<!--                        </item>-->
-<!--                    </item>-->
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
                     <item name="label" xsi:type="string" translate="true">Email</item>
                 </item>
             </argument>
@@ -148,7 +155,13 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Content</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Content Comment</item>
                 </item>
             </argument>
         </column>
@@ -156,7 +169,13 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">int</item>
-                    <item name="label" xsi:type="string" translate="true">BlogID</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Blog Id</item>
                 </item>
             </argument>
         </column>

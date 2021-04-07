@@ -8,9 +8,9 @@ interface CommentRepositoryInterface
     /**
      * Save Post.
      *
-     * @param \AHT\Comment\Api\Data\CommentInterface $post
+     * @param \AHT\Blog\Api\Data\CommentInterface $post
      *
-     * @return \AHT\Comment\Api\Data\CommentInterface
+     * @return \AHT\Blog\Api\Data\CommentInterface
      */
     public function save(\AHT\Blog\Api\Data\CommentInterface $post);
 

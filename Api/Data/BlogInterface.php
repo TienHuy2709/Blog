@@ -7,14 +7,14 @@ interface BlogInterface
     const ID = 'id';
 
     /**
-     * Get portfolio id
+     * Get comment id
      *
      * @return int|null
      */
     public function getId();
 
     /**
-     * Set portfolio id
+     * Set comment id
      *
      * @param int $id
      * @return @this
@@ -22,14 +22,14 @@ interface BlogInterface
     public function setId($id);
 
     /**
-     * Get portfolio title
+     * Get comment title
      *
      * @return string|null
      */
     public function getTitle();
 
     /**
-     * Set portfolio title
+     * Set comment title
      *
      * @param string $title
      * @return null
@@ -37,14 +37,14 @@ interface BlogInterface
     public function setTitle($title);
 
     /**
-     * Get portfolio images
+     * Get comment images
      *
      * @return string|null
      */
     public function getImages();
 
     /**
-     * Set portfolio images
+     * Set comment images
      *
      * @param string $images
      * @return null
@@ -52,14 +52,14 @@ interface BlogInterface
     public function setImages($images);
 
     /**
-     * Get portfolio description
+     * Get comment description
      *
      * @return string|null
      */
     public function getDescription();
 
     /**
-     * Set portfolio description
+     * Set comment description
      *
      * @param string $description
      * @return null
@@ -67,14 +67,14 @@ interface BlogInterface
     public function setDescription($description);
 
     /**
-     * Get portfolio content
+     * Get comment content
      *
      * @return string|null
      */
     public function getContent();
 
     /**
-     * Set portfolio content
+     * Set comment content
      *
      * @param string $content
      * @return null

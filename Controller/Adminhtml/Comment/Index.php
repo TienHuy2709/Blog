@@ -20,10 +20,10 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('AHT_Blog:blog');
-        $resultPage->addBreadcrumb(__('Blog'), __('Blog'));
-        $resultPage->addBreadcrumb(__('Manage Blog'), __('Manage Blog'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Blog'));
+        $resultPage->setActiveMenu('AHT_Blog:comment');
+        $resultPage->addBreadcrumb(__('Comment'), __('Comment'));
+        $resultPage->addBreadcrumb(__('Manage Comment'), __('Manage Comment'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Comment'));
         return $resultPage;
     }
 

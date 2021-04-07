@@ -27,6 +27,8 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
      */
     protected $visitorModel;
 
+    private $id;
+
     /**
      * @param EntityFactory $entityFactory
      * @param Logger $logger
@@ -51,6 +53,13 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         $this->commentModel = $commentModel;
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
     }
+    public function setBlogId($id){
+        $this->id = $id;
+    }
+
+    public function getBlogId(){
+        return $this->id;
+    }
     protected function _initSelect()
     {
         $this->getSelect()
@@ -62,5 +71,11 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
                 ]);
         $this->addFilterToMap('id', 'main_table.id');
         return $this;
+    }
+
+    public function deleteByBlogId()
+    {
+        $select = "DELETE FROM " . $this->getMainTable() . " WHERE blogid = " . $this->id;
+        return $this->getConnection()->query($select);
     }
 }

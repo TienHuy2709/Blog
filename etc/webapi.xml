@@ -7,7 +7,7 @@
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <!-- AHT Blog -->
+    <!-- AHT Blog Blog -->
     <route url="/V1/Blog/:id" method="GET">
         <service class="AHT\Blog\Api\BlogRepositoryInterface" method="getById"/>
         <resources>
@@ -34,6 +34,38 @@
     </route>
     <route  url="/V1/Blog/:postId" method="DELETE">
         <service class="AHT\Blog\Api\BlogRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- AHT Blog Comment -->
+    <route url="/V1/Comment/:id" method="GET">
+        <service class="AHT\Blog\Api\CommentRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/Comment" method="GET">
+        <service class="AHT\Blog\Api\CommentRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/Comment" method="POST">
+        <service class="AHT\Blog\Api\CommentRepositoryInterface" method="createPost"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/Comment/:id" method="PUT">
+        <service class="AHT\Blog\Api\CommentRepositoryInterface" method="updatePost"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route  url="/V1/Comment/:postId" method="DELETE">
+        <service class="AHT\Blog\Api\CommentRepositoryInterface" method="deleteById"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>

@@ -79,4 +79,5 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         return $this->getConnection()->fetchAll($select);
 
     }
+
 }

@@ -1,9 +1,11 @@
-
 <?php
 $item = $block->getEditRecord();
+if(empty($item)){
+    echo "<div class='error'><h1> 404 NOT FOUND </h1></div>";
+    die();
+}
 $urlImage = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
 $image = $urlImage . 'blog/index/' . $item[0]['images'];
-
 ?>
 <div class="container">
     <h2><?php echo $item[0]['title'] ?></h2>
@@ -25,16 +27,20 @@ $image = $urlImage . 'blog/index/' . $item[0]['images'];
         ?>
     </div>
 </div>
-<div class="list-comment">
-    <div class="title-comment">
-        <h2>User Comment</h2>
+<div class="list-comment block review-list legend">
+    <div class="block-title">
+        <strong>User Comment</strong>
     </div>
     <!--Neu bien email cua phan tu dau tien ton tai nghia la mang co ton tai du lieu comment-->
     <?php if(!empty($item[0]['email'])): ?>
     <!--Hien thi comment khi co du lieu-->
     <?php foreach ($item as $key => $value): ?>
-            <p class="email-user"><?php echo $value['email']; ?></p>
-            <p class="content-user"><?php echo $value['contentcm']; ?></p>
+        <ol class="items review-items">
+            <li class="item review-item">
+                <p class="review-title"><?php echo $value['email']; ?></p>
+                <p class="review-content"><?php echo $value['contentcm']; ?></p>
+            </li>
+        </ol>
     <?php endforeach; ?>
     <?php endif ?>
 </div>

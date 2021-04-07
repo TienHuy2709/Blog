@@ -2,6 +2,10 @@
 
 namespace AHT\Blog\Controller\Adminhtml\Index;
 
+use Magento\Framework\Registry;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Framework\View\Result\PageFactory;
+
 class Delete extends \Magento\Backend\App\Action
 {
     /**
@@ -9,8 +13,6 @@ class Delete extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-
-
     /**
      * Delete Banner
      *
@@ -22,10 +24,13 @@ class Delete extends \Magento\Backend\App\Action
         $blogId = (int)$this->getRequest()->getParam('id');
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
+        $data = $this->_objectManager->create('AHT\Blog\Model\ResourceModel\Comment\Grid\Collection');
+        $data->setBlogId($blogId);
         if ($blogId && (int) $blogId > 0) {
             try {
                 $model = $this->_objectManager->create('AHT\Blog\Model\Blog');
                 $model->load($blogId);
+                $data->deleteByBlogId();
                 $model->delete();
                 $this->messageManager->addSuccess(__('The Blog has been deleted successfully.'));
                 return $resultRedirect->setPath('*/*/');

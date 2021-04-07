@@ -30,7 +30,6 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @var array
      */
     protected $loadedData;
-    private $fileInfo;
     protected $_storeManager;
     /**
      * Constructor
@@ -61,4 +60,30 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data, $pool);
     }
 
+    /**
+     * Get data
+     *
+     * @return array
+     */
+    public function getData()
+    {
+        if (isset($this->loadedData)) {
+            return $this->loadedData;
+        }
+        $items = $this->collection->getItems();
+        /** @var \AHT\Blog\Model\Comment $block */
+        foreach ($items as $block) {
+            $this->loadedData[$block->getId()] = $block->getData();
+        }
+
+        $data = $this->dataPersistor->get('comment');
+        if (!empty($data)) {
+            $block = $this->collection->getNewEmptyItem();
+            $block->setData($data);
+            $this->loadedData[$block->getId()] = $block->getData();
+            $this->dataPersistor->clear('comment');
+        }
+
+        return $this->loadedData;
+    }
 }

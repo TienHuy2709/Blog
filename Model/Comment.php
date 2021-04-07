@@ -2,9 +2,10 @@
 namespace AHT\Blog\Model;
 
 use \Magento\Framework\DataObject\IdentityInterface;
+use AHT\Blog\Api\Data\CommentInterface;
 
 // class Portfolio extends AbstractModel implements IdentityInterface
-class Comment extends \Magento\Framework\Model\AbstractModel {
+class Comment extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, CommentInterface {
     const CACHE_TAG = 'aht_comment_post';
 
     protected $_cacheTag = 'aht_comment_post';
@@ -56,13 +57,13 @@ class Comment extends \Magento\Framework\Model\AbstractModel {
         $this->setData('email', $email);
     }
 
-    public function getContent()
+    public function getContentcm()
     {
         return $this->getData('contentcm');
     }
-    public function setContent($content)
+    public function setContentcm($contentcm)
     {
-        $this->setData('contentcm', $content);
+        $this->setData('contentcm', $contentcm);
     }
 
     public function getBlogId()

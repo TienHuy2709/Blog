@@ -84,7 +84,8 @@ class BlogActions extends Column
                             'label' => __('Delete'),
                             'confirm' => [
                                 'title' => __('Delete "${ $.$data.title }"'),
-                                'message' => __('Are you sure you wan\'t to delete "${ $.$data.title }" ?')
+                                'message' => __('Are you sure you wan\'t to delete "${ $.$data.title }" and
+                                will delete all comments related to the article ?')
                             ]
                         ]
                     ];

@@ -33,7 +33,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>AHT_Blog::page</aclResource>
+        <aclResource>AHT_Blog::index</aclResource>
         <dataProvider class="AHT\Blog\Ui\Component\DataProvider" name="aht_blog_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
