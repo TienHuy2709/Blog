@@ -32,13 +32,19 @@ class Detail extends Template
     {
         return $this->_pageFactory->create();
     }
-
     public function getEditRecord()
     {
+
         $id = $this->_coreRegistry->registry('detailID');
         $data = $this->_blogCollectionFactory->create();
-        $result = $data->addFieldToFilter('id',$id);
-        $blog = $result->getData();
-        return $blog[0];
+        $data->setBlogId($id);
+        /*gan du lieu tra ve tu ham khi join co du lieu trong model cho bien data 1*/
+        $blog = $data->selectById();
+        /*khi bien du lien data1 rong thi se lay du lieu co san theo ham cua AbstractModel*/
+        if(empty($blog)){
+            $result = $data->addFieldToFilter('id',$id);
+            $blog = $result->getData();
+        }
+        return $blog;
     }
 }

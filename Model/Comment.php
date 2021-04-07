@@ -58,18 +58,18 @@ class Comment extends \Magento\Framework\Model\AbstractModel {
 
     public function getContent()
     {
-        return $this->getData('content');
+        return $this->getData('contentcm');
     }
-    public function setImages($content)
+    public function setContent($content)
     {
-        $this->setData('content', $content);
+        $this->setData('contentcm', $content);
     }
 
-    public function getDescription()
+    public function getBlogId()
     {
         return $this->getData('blogid');
     }
-    public function setDescription($blogid)
+    public function setBlogId($blogid)
     {
         $this->setData('blogid', $blogid);
     }

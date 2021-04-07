@@ -2,20 +2,20 @@
 <?php
 $item = $block->getEditRecord();
 $urlImage = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
-$image = $urlImage . 'blog/index/' . $item['images'];
+$image = $urlImage . 'blog/index/' . $item[0]['images'];
 
 ?>
 <div class="container">
-    <h2><?php echo $item['title'] ?></h2>
+    <h2><?php echo $item[0]['title'] ?></h2>
     <img src="<?php echo $image?>" width="240" alt="Demo image Blog">
     <div class="blog-description">
-        <?php echo $item['description'] ?>
+        <?php echo $item[0]['description'] ?>
     </div>
 
     <div class="blog-content">
         <?php
         /*Gan noi dung content*/
-        $content = $item['content'];
+        $content = $item[0]['content'];
         /*Khoi tao ham co san trong magento */
         $om = \Magento\Framework\App\ObjectManager::getInstance();
         /*Goi den function de lay url-media cho cac the co 'media url'*/
@@ -24,4 +24,17 @@ $image = $urlImage . 'blog/index/' . $item['images'];
         echo $filterManager;
         ?>
     </div>
+</div>
+<div class="list-comment">
+    <div class="title-comment">
+        <h2>User Comment</h2>
+    </div>
+    <!--Neu bien email cua phan tu dau tien ton tai nghia la mang co ton tai du lieu comment-->
+    <?php if(!empty($item[0]['email'])): ?>
+    <!--Hien thi comment khi co du lieu-->
+    <?php foreach ($item as $key => $value): ?>
+            <p class="email-user"><?php echo $value['email']; ?></p>
+            <p class="content-user"><?php echo $value['contentcm']; ?></p>
+    <?php endforeach; ?>
+    <?php endif ?>
 </div>

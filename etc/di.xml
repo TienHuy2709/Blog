@@ -40,5 +40,6 @@
     <!-- API -->
     <preference for="AHT\Blog\Api\BlogRepositoryInterface" type="AHT\Blog\Model\BlogRepository" />
     <preference for="AHT\Blog\Api\Data\BlogInterface" type="AHT\Blog\Model\Blog"/>
-
+    <preference for="AHT\Blog\Api\CommentRepositoryInterface" type="AHT\Blog\Model\CommentRepository" />
+    <preference for="AHT\Blog\Api\Data\CommentInterface" type="AHT\Blog\Model\Comment"/>
 </config>

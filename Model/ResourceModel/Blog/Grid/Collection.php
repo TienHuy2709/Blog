@@ -26,6 +26,7 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
      * @var Visitor
      */
     protected $visitorModel;
+    private $id;
 
     /**
      * @param EntityFactory $entityFactory
@@ -50,5 +51,32 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         $this->date = $date;
         $this->blogModel = $blogModel;
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
+    }
+    public function setBlogId($id){
+        $this->id = $id;
+    }
+
+    public function getBlogId(){
+        return $this->id;
+    }
+    public function selectById()
+    {
+        $select = $this->getConnection()
+
+            ->select()
+
+            ->from($this->getMainTable())
+
+            ->where( 'aht_comment.blogid'. '=?', $this->id)
+
+            ->join('aht_comment',
+
+                'aht_blog.id = aht_comment.blogid',
+
+                [
+                    'aht_comment.email', 'aht_comment.contentcm', 'aht_comment.blogid'
+                ]);
+        return $this->getConnection()->fetchAll($select);
+
     }
 }

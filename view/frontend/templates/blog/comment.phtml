@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$item = $block->getEditRecord();
+ $url = $block->getBaseUrl();
+/** @var \Magento\Review\Block\Form $block */
+//phpcs:disable Generic.Files.LineLength
+?>
+<div class="form-comment">
+    <h4>Form Comment</h4>
+</div>
+<div class="block review-add">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Write Your Own Comment')) ?></strong></div>
+    <div class="block-content">
+            <form action="<?php echo $url ?>blog/index/save/id/<?php echo $item[0]['id']; ?>" class="review-form" method="post" id="review-form" data-role="product-review-form" data-bind="scope: 'review-form'">
+                <?= $block->getBlockHtml('formkey') ?>
+                <?= $block->getChildHtml('form_fields_before') ?>
+                <fieldset class="fieldset review-fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                    <div class="field review-field-nickname required">
+                        <label for="nickname_field" class="label"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                        <div class="control">
+                            <input type="email" name="email" id="nickname_field" class="input-text" data-validate="{required:true}" data-bind="value: nickname()" />
+                        </div>
+                    </div>
+                    <div class="field review-field-text required">
+                        <label for="review_field" class="label"><span><?= $block->escapeHtml(__('Content Comment')) ?></span></label>
+                        <div class="control">
+                            <textarea name="contentcm" id="review_field" cols="5" rows="3" data-validate="{required:true}" data-bind="value: review().detail"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="actions-toolbar review-form-actions">
+                    <div class="primary actions-primary">
+                        <button type="submit" class="action submit primary"><span><?= $block->escapeHtml(__('Submit Comment')) ?></span></button>
+                    </div>
+                </div>
+            </form>
+            <script type="text/x-magento-init">
+{
+    "[data-role=product-review-form]": {
+        "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+    },
+    "#review-form": {
+        "Magento_Review/js/error-placement": {},
+        "Magento_Review/js/validate-review": {},
+        "Magento_Review/js/submit-review": {}
+    }
+}
+</script>
+    </div>
+</div>

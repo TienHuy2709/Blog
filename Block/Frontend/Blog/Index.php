@@ -39,7 +39,6 @@ class Index extends Template implements BlockInterface
             $itemData = $item->getData();
             $this->_loadedData[$item->getId()] = $itemData;
         }
-
         return $this->_loadedData;
     }
 

@@ -14,7 +14,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('AHT\Blog\Model\Category', 'AHT\Blog\Model\ResourceModel\Category');
+        $this->_init('AHT\Blog\Model\Comment', 'AHT\Blog\Model\ResourceModel\Comment');
     }
 
 }
