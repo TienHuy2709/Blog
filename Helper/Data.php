@@ -21,4 +21,14 @@ class Data extends AbstractHelper
         return $this->getConfigValue(self::XML_PATH_BLOG .'blog/'. $code, $storeId);
     }
 
+    public function getSlideConfig($code, $storeId = null)
+    {
+        return $this->scopeConfig->getValue('blog/slide/'.$code, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getNumberBlog($code, $storeId = null)
+    {
+        return $this->scopeConfig->getValue('blog/number_blog/'.$code, ScopeInterface::SCOPE_STORE);
+    }
+
 }

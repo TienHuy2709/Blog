@@ -45,4 +45,16 @@ class Index extends Template implements BlockInterface
     public function getStoreManager(){
         return $this->_storeManager;
     }
+
+    public function getSlideBlogManager(){
+        return $this->_helperData->getSlideConfig('is_enabled');
+    }
+
+    public function getBlogInPage(){
+        return $this->_helperData->getNumberBlog('number_in_page');
+    }
+
+    public function getBlogInSlide(){
+        return $this->_helperData->getNumberBlog('number_in_slide');
+    }
 }

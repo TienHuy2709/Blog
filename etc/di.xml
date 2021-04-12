@@ -44,4 +44,10 @@
     <preference for="AHT\Blog\Api\Data\BlogInterface" type="AHT\Blog\Model\Blog"/>
     <preference for="AHT\Blog\Api\CommentRepositoryInterface" type="AHT\Blog\Model\CommentRepository" />
     <preference for="AHT\Blog\Api\Data\CommentInterface" type="AHT\Blog\Model\Comment"/>
+
+    <!-- Plugin -->
+    <type name="AHT\Blog\Model\Blog">
+        <plugin name="blog_name1" type="AHT\Blog\Plugin\Blog1" sortOrder="1" />
+    </type>
 </config>
+

@@ -8,23 +8,26 @@ $urlImage = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\Url
 $image = $urlImage . 'blog/index/' . $item[0]['images'];
 ?>
 <div class="container">
-    <h2><?php echo $item[0]['title'] ?></h2>
-    <img src="<?php echo $image?>" width="240" alt="Demo image Blog">
-    <div class="blog-description">
-        <?php echo $item[0]['description'] ?>
-    </div>
-
-    <div class="blog-content">
-        <?php
-        /*Gan noi dung content*/
-        $content = $item[0]['content'];
-        /*Khoi tao ham co san trong magento */
-        $om = \Magento\Framework\App\ObjectManager::getInstance();
-        /*Goi den function de lay url-media cho cac the co 'media url'*/
-        $filterManager = $om->get('Magento\Cms\Model\Template\FilterProvider')->getPageFilter()->filter($content);
-        /*hien thi lai noi dung sau khi thay doi media url*/
-        echo $filterManager;
-        ?>
+    <h2 class="title"><?php echo $item[0]['title'] ?></h2>
+    <div class="content">
+        <div class="blog-description">
+            <?php echo $item[0]['description'] ?>
+        </div>
+        <div class="img-demo">
+            <img src="<?php echo $image?>" alt="Demo image Blog">
+        </div>
+        <div class="blog-content">
+            <?php
+            /*Gan noi dung content*/
+            $content = $item[0]['content'];
+            /*Khoi tao ham co san trong magento */
+            $om = \Magento\Framework\App\ObjectManager::getInstance();
+            /*Goi den function de lay url-media cho cac the co 'media url'*/
+            $filterManager = $om->get('Magento\Cms\Model\Template\FilterProvider')->getPageFilter()->filter($content);
+            /*hien thi lai noi dung sau khi thay doi media url*/
+            echo $filterManager;
+            ?>
+        </div>
     </div>
 </div>
 <div class="list-comment block review-list legend">
@@ -35,8 +38,8 @@ $image = $urlImage . 'blog/index/' . $item[0]['images'];
     <?php if(!empty($item[0]['email'])): ?>
     <!--Hien thi comment khi co du lieu-->
     <?php foreach ($item as $key => $value): ?>
-        <ol class="items review-items">
-            <li class="item review-item">
+        <ol class="items review-item">
+            <li class="item">
                 <p class="review-title"><?php echo $value['email']; ?></p>
                 <p class="review-content"><?php echo $value['contentcm']; ?></p>
             </li>

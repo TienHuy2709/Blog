@@ -58,6 +58,19 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ]
             );
         }
+
+        if (version_compare($context->getVersion(), '1.0.5', '<')) {
+            $setup->getConnection()->modifyColumn(
+                $setup->getTable('aht_blog'),
+                'content',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                    'size' => 100000,
+                    'nullable' => false,
+                    'default' => ''
+                ]
+            );
+        }
         $setup->endSetup();
     }
 

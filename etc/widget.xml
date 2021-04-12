@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget id="aht_blog_slider" class="AHT\Blog\Block\Frontend\Blog\Index" is_email_compatible="false" placeholder_image="Magento_Widget::placeholder.gif">
-        <label translate="true">Blog index slider</label>
-        <description translate="true">AHT Blog index slider for widget</description>
+        <label translate="true">Blog index slider</label><description translate="true">AHT Blog index slider for widget</description>
         <parameters>
             <parameter name="slidetoshow" xsi:type="text" required="true" visible="true">
                 <label translate="true">Slide to show (frontend)</label>

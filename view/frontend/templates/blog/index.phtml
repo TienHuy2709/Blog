@@ -2,14 +2,18 @@
 $items = $block->getDataBlocks();
 $slidesToShow = $block->getData('slidetoshow');
 $slidesToScroll = $block->getData('slidetoscroll');
+$checkSlide = $block->getSlideBlogManager();
+$numberInPage = $block->getBlogInPage();
+$numberInSilde = $block->getBlogInSlide();
 ?>
 <div class="products wrapper grid products-grid">
-    <ol class="products list items product-items my-list">
-        <?php foreach($items as $item):  ?>
+    <ol class="products list items product-items <?php if($checkSlide==1) echo "my-list"; ?>">
+        <?php $dem=0; foreach($items as $item):  ?>
+            <?php if($dem == $numberInPage) break; $dem++; ?>
             <?php $imagePath = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'blog/index/' . $item['images'];
             ?>
             <li class="item product product-item">
-                <div class="product-item-info" data-container="product-grid">
+                <div class="product-item-info" style="width: 70%" data-container="product-grid">
                     <a href="<?php echo $block->getUrl('blog/index/detail').'id/'.$item['id']; ?>" class="product photo product-item-photo"
                        tabindex="-1">
                         <span class="product-image-container" style="width:240px;">
@@ -48,7 +52,7 @@ $slidesToScroll = $block->getData('slidetoscroll');
                 dots: true,
                 infinite: true,
                 speed: 300,
-                slidesToShow: 4,
+                slidesToShow: <?php echo $numberInSilde; ?>,
                 slidesToScroll: 4,
                 autoplay: true,
                 autoplaySpeed: 2000,
