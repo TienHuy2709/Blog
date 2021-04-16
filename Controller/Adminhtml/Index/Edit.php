@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -26,7 +27,8 @@ class Edit extends \AHT\Blog\Controller\Adminhtml\Blog implements HttpGetActionI
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    ) {
+    )
+    {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context, $coreRegistry);
     }

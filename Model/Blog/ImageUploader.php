@@ -88,7 +88,8 @@ class ImageUploader
         $baseTmpPath = 'blog/tmp/index',
         $basePath = 'blog/index',
         $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png']
-    ) {
+    )
+    {
         $this->coreFileStorageDatabase = $coreFileStorageDatabase;
         $this->mediaDirectory = $filesystem->getDirectoryWrite(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
         $this->uploaderFactory = $uploaderFactory;

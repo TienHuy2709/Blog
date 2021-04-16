@@ -32,7 +32,7 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route  url="/V1/Blog/:postId" method="DELETE">
+    <route url="/V1/Blog/:postId" method="DELETE">
         <service class="AHT\Blog\Api\BlogRepositoryInterface" method="deleteById"/>
         <resources>
             <resource ref="anonymous"/>
@@ -64,7 +64,7 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route  url="/V1/Comment/:postId" method="DELETE">
+    <route url="/V1/Comment/:postId" method="DELETE">
         <service class="AHT\Blog\Api\CommentRepositoryInterface" method="deleteById"/>
         <resources>
             <resource ref="anonymous"/>

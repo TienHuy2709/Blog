@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Block\Adminhtml\Blog\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;

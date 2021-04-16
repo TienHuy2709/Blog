@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Model\Comment;
 
 use AHT\Blog\Model\ResourceModel\Comment\CollectionFactory;
@@ -31,6 +32,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      */
     protected $loadedData;
     protected $_storeManager;
+
     /**
      * Constructor
      *
@@ -53,7 +55,8 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         array $meta = [],
         array $data = [],
         PoolInterface $pool = null
-    ) {
+    )
+    {
         $this->collection = $blockCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         $this->_storeManager = $storeManager;

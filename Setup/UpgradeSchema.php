@@ -71,6 +71,33 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ]
             );
         }
+        if (version_compare($context->getVersion(), '1.0.6', '<')) {
+            $table1 = $setup->getTable('aht_blog');
+            $table2 = $setup->getTable('aht_comment');
+            $setup->getConnection()
+                ->addIndex(
+                    $table1,
+                    $setup->getIdxName(
+                        $table1,
+                        ['title', 'content', 'description'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['title', 'content', 'description'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+
+            $setup->getConnection()
+                ->addIndex(
+                    $table2,
+                    $setup->getIdxName(
+                        $table2,
+                        ['email', 'contentcm'],
+                        \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['email', 'contentcm'],
+                    \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+                );
+        }
         $setup->endSetup();
     }
 

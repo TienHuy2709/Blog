@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml;
 abstract class Blog extends \Magento\Backend\App\Action
 {
@@ -43,6 +44,7 @@ abstract class Blog extends \Magento\Backend\App\Action
             ->addBreadcrumb(__('All Blog'), __('All Blog'));
         return $resultPage;
     }
+
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('AHT_Blog::index');

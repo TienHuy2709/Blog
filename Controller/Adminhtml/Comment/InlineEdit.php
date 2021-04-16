@@ -7,7 +7,7 @@ use Magento\Framework\Controller\Result\JsonFactory;
 
 class InlineEdit extends \Magento\Backend\App\Action
 {
-    /** @var JsonFactory  */
+    /** @var JsonFactory */
     protected $jsonFactory;
 
     /**
@@ -17,7 +17,8 @@ class InlineEdit extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         JsonFactory $jsonFactory
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
     }

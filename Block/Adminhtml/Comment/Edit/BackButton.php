@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Block\Adminhtml\Comment\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;

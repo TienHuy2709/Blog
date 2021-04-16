@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Block\Frontend\Blog;
 
 use Magento\Framework\View\Element\Template;
@@ -26,35 +27,45 @@ class Index extends Template implements BlockInterface
         parent::__construct($context, $data);
         $this->_customerSession = $customerSession;
         $this->_helperData = $helperData;
-        $this->_collection =  $blogCollectionFactory->create();
+        $this->_collection = $blogCollectionFactory->create();
     }
 
     public function getDataBlocks()
     {
-
         $blog = $this->_collection;
         $items = $blog->getItems();
-        foreach($items as $item)
-        {
+        foreach ($items as $item) {
             $itemData = $item->getData();
             $this->_loadedData[$item->getId()] = $itemData;
         }
         return $this->_loadedData;
     }
 
-    public function getStoreManager(){
+    public function getDataWidgets($name, $value)
+    {
+        if (!$this->hasData($name)) {
+            $this->setData($name, $value);
+        }
+        return $this->getData($name);
+    }
+
+    public function getStoreManager()
+    {
         return $this->_storeManager;
     }
 
-    public function getSlideBlogManager(){
+    public function getSlideBlogManager()
+    {
         return $this->_helperData->getSlideConfig('is_enabled');
     }
 
-    public function getBlogInPage(){
+    public function getBlogInPage()
+    {
         return $this->_helperData->getNumberBlog('number_in_page');
     }
 
-    public function getBlogInSlide(){
+    public function getBlogInSlide()
+    {
         return $this->_helperData->getNumberBlog('number_in_slide');
     }
 }

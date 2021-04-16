@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml\Index;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -56,7 +57,8 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Blog implements HttpPostAction
         BlogFactory $blogFactory = null,
         ImageUploader $imageUploader,
         BlogRepositoryInterface $blogRepository = null
-    ) {
+    )
+    {
         $this->dataPersistor = $dataPersistor;
         $this->blogFactory = $blogFactory
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(BlogFactory::class);
@@ -99,7 +101,7 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Blog implements HttpPostAction
             }
             if (isset($data['image'][0]['name'])) {
                 $imageName = $data['image'][0]['name'];
-            }else{
+            } else {
                 $imageName = '';
             }
             $data['images'] = $imageName;
@@ -110,7 +112,7 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Blog implements HttpPostAction
                 $model->save();
                 $this->messageManager->addSuccessMessage(__('You saved the blog.'));
                 $this->dataPersistor->clear('blog');
-                if ($imageName){
+                if ($imageName) {
                     $this->imageUploader->moveFileFromTmp($imageName);
                 }
                 return $this->processBlockReturn($model, $data, $resultRedirect);
@@ -138,7 +140,7 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Blog implements HttpPostAction
     {
         $redirect = $data['back'] ?? 'close';
 
-        if ($redirect ==='continue') {
+        if ($redirect === 'continue') {
             $resultRedirect->setPath('*/*/edit', ['id' => $model->getId()]);
         } else if ($redirect === 'close') {
             $resultRedirect->setPath('*/*/');

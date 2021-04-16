@@ -1,9 +1,10 @@
 <?php
+
 namespace AHT\Blog\Block\Adminhtml\Blog\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class ResetButton extends GenericButton  implements ButtonProviderInterface
+class ResetButton extends GenericButton implements ButtonProviderInterface
 {
     public function getButtonData()
     {

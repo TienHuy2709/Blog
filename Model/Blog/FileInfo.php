@@ -42,7 +42,8 @@ class FileInfo
     public function __construct(
         Filesystem $filesystem,
         Mime $mime
-    ) {
+    )
+    {
         $this->filesystem = $filesystem;
         $this->mime = $mime;
     }

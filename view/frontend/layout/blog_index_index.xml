@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>Blog</title>
     </head>
     <body>
         <referenceContainer name="sidebar.additional" remove="true"/>
         <referenceContainer name="content">
-            <block class="AHT\Blog\Block\Frontend\Blog\Index" name="aht_blog_index" template="blog/index.phtml" ifconfig="blog/blog/is_enabled"/>
+            <block class="AHT\Blog\Block\Frontend\Blog\Index" name="aht_blog_index" template="blog/index.phtml"
+                   ifconfig="blog/blog/is_enabled"/>
         </referenceContainer>
     </body>
 </page>

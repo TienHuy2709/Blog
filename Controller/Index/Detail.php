@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Controller\Index;
 
 use Magento\Framework\Controller\ResultFactory;
@@ -18,7 +19,8 @@ class Detail extends \Magento\Framework\App\Action\Action
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Registry $coreRegistry,
         CollectionFactory $blogCollectionFactory
-    ) {
+    )
+    {
         $this->_coreRegistry = $coreRegistry;
         $this->resultPageFactory = $resultPageFactory;
         $this->_blogCollectionFactory = $blogCollectionFactory;
@@ -29,9 +31,9 @@ class Detail extends \Magento\Framework\App\Action\Action
     {
         $id = $this->_request->getParam('id');
         $this->_coreRegistry->register('detailID', $id);
-/*        $data = $this->_blogCollectionFactory->create();
-        $data->setBlogId($id);
-        $data = $data->selectById();*/
+        /*        $data = $this->_blogCollectionFactory->create();
+                $data->setBlogId($id);
+                $data = $data->selectById();*/
         $resultPage = $this->resultPageFactory->create();
         return $resultPage;
     }

@@ -1,11 +1,13 @@
 <?php
+
 namespace AHT\Blog\Model;
 
 use \Magento\Framework\DataObject\IdentityInterface;
 use AHT\Blog\Api\Data\CommentInterface;
 
 // class Portfolio extends AbstractModel implements IdentityInterface
-class Comment extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, CommentInterface {
+class Comment extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, CommentInterface
+{
     const CACHE_TAG = 'aht_comment_post';
 
     protected $_cacheTag = 'aht_comment_post';
@@ -20,10 +22,13 @@ class Comment extends \Magento\Framework\Model\AbstractModel implements Identity
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection =
         null,
         array $data = []
-    ) {
-        parent::__construct($context, $registry, $resource,$resourceCollection, $data);
+    )
+    {
+        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
-    public function _construct() {
+
+    public function _construct()
+    {
         $this->_init('AHT\Blog\Model\ResourceModel\Comment');
     }
 
@@ -43,6 +48,7 @@ class Comment extends \Magento\Framework\Model\AbstractModel implements Identity
     {
         return $this->getData('id');
     }
+
     public function setId($id)
     {
         $this->setData('id', $id);
@@ -52,6 +58,7 @@ class Comment extends \Magento\Framework\Model\AbstractModel implements Identity
     {
         return $this->getData('email');
     }
+
     public function setEmail($email)
     {
         $this->setData('email', $email);
@@ -61,6 +68,7 @@ class Comment extends \Magento\Framework\Model\AbstractModel implements Identity
     {
         return $this->getData('contentcm');
     }
+
     public function setContentcm($contentcm)
     {
         $this->setData('contentcm', $contentcm);
@@ -70,6 +78,7 @@ class Comment extends \Magento\Framework\Model\AbstractModel implements Identity
     {
         return $this->getData('blogid');
     }
+
     public function setBlogId($blogid)
     {
         $this->setData('blogid', $blogid);

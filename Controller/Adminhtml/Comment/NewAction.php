@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml\Comment;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -26,7 +27,8 @@ class NewAction extends \AHT\Blog\Controller\Adminhtml\Comment implements HttpGe
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
-    ) {
+    )
+    {
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context, $coreRegistry);
     }

@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml;
 abstract class Comment extends \Magento\Backend\App\Action
 {
@@ -43,6 +44,7 @@ abstract class Comment extends \Magento\Backend\App\Action
             ->addBreadcrumb(__('All Comment'), __('All Comment'));
         return $resultPage;
     }
+
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('AHT_Blog::comment');

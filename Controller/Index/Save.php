@@ -82,7 +82,7 @@ class Save extends \Magento\Framework\App\Action\Action
             $comment->setData($data);
         }
         $comment->save($data);
-        $types = array('config','layout','block_html','collections','reflection','db_ddl','compiled_config','eav','config_integration','config_integration_api','full_page','translate','config_webservice','vertex');
+        $types = array('config', 'layout', 'block_html', 'collections', 'reflection', 'db_ddl', 'compiled_config', 'eav', 'config_integration', 'config_integration_api', 'full_page', 'translate', 'config_webservice', 'vertex');
         foreach ($types as $type) {
             $this->_cacheTypeList->cleanType($type);
         }
@@ -91,7 +91,7 @@ class Save extends \Magento\Framework\App\Action\Action
         }
 
         $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setPath('blog/index/detail/id/'.$id);
+        $resultRedirect->setPath('blog/index/detail/id/' . $id);
         return $resultRedirect;
     }
 }

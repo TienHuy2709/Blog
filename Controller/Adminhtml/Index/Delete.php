@@ -26,7 +26,7 @@ class Delete extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->_objectManager->create('AHT\Blog\Model\ResourceModel\Comment\Grid\Collection');
         $data->setBlogId($blogId);
-        if ($blogId && (int) $blogId > 0) {
+        if ($blogId && (int)$blogId > 0) {
             try {
                 $model = $this->_objectManager->create('AHT\Blog\Model\Blog');
                 $model->load($blogId);

@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Controller\Adminhtml\Comment;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -49,7 +50,8 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Comment implements HttpPostAct
         DataPersistorInterface $dataPersistor,
         CommentFactory $commentFactory = null,
         CommentRepositoryInterface $commentRepository = null
-    ) {
+    )
+    {
         $this->dataPersistor = $dataPersistor;
         $this->commentFactory = $commentFactory
             ?: \Magento\Framework\App\ObjectManager::getInstance()->get(CommentFactory::class);
@@ -118,7 +120,7 @@ class Save extends \AHT\Blog\Controller\Adminhtml\Comment implements HttpPostAct
     {
         $redirect = $data['back'] ?? 'close';
 
-        if ($redirect ==='continue') {
+        if ($redirect === 'continue') {
             $resultRedirect->setPath('*/*/edit', ['id' => $model->getId()]);
         } else if ($redirect === 'close') {
             $resultRedirect->setPath('*/*/');

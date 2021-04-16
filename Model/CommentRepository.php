@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Model;
 
 use AHT\Blog\Api\Data;
@@ -50,7 +51,8 @@ class CommentRepository implements CommentRepositoryInterface
         CommentFactory $PostFactory,
         Data\CommentInterfaceFactory $dataPostFactory,
         PostCollectionFactory $PostCollectionFactory
-    ) {
+    )
+    {
         $this->resource = $resource;
         $this->PostFactory = $PostFactory;
         $this->PostCollectionFactory = $PostCollectionFactory;
@@ -61,7 +63,7 @@ class CommentRepository implements CommentRepositoryInterface
     /**
      * Save Post data
      *
-     * @param  \AHT\Blog\Api\Data\CommentInterface $post
+     * @param \AHT\Blog\Api\Data\CommentInterface $post
      * @return \AHT\Blog\Api\Data\CommentInterface
      */
     public function save(CommentInterface $post)
@@ -94,6 +96,7 @@ class CommentRepository implements CommentRepositoryInterface
         $result = $Post;
         return $result;
     }
+
     /**
      * function get all data
      *
@@ -130,7 +133,7 @@ class CommentRepository implements CommentRepositoryInterface
     }
 
 
-    public function updatePost(String $id, CommentInterface $post)
+    public function updatePost(string $id, CommentInterface $post)
     {
 
         try {
@@ -153,7 +156,7 @@ class CommentRepository implements CommentRepositoryInterface
     public function deleteById($postId)
     {
         $id = intval($postId);
-        if($this->resource->delete($this->getById($id))) {
+        if ($this->resource->delete($this->getById($id))) {
             return json_encode([
                 "status" => 200,
                 "message" => "Successfully"

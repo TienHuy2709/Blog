@@ -1,6 +1,6 @@
 <?php
 $item = $block->getEditRecord();
-if(empty($item)){
+if (empty($item)) {
     echo "<div class='error'><h1> 404 NOT FOUND </h1></div>";
     die();
 }
@@ -14,7 +14,7 @@ $image = $urlImage . 'blog/index/' . $item[0]['images'];
             <?php echo $item[0]['description'] ?>
         </div>
         <div class="img-demo">
-            <img src="<?php echo $image?>" alt="Demo image Blog">
+            <img src="<?php echo $image ?>" alt="Demo image Blog">
         </div>
         <div class="blog-content">
             <?php
@@ -35,15 +35,15 @@ $image = $urlImage . 'blog/index/' . $item[0]['images'];
         <strong>User Comment</strong>
     </div>
     <!--Neu bien email cua phan tu dau tien ton tai nghia la mang co ton tai du lieu comment-->
-    <?php if(!empty($item[0]['email'])): ?>
-    <!--Hien thi comment khi co du lieu-->
-    <?php foreach ($item as $key => $value): ?>
-        <ol class="items review-item">
-            <li class="item">
-                <p class="review-title"><?php echo $value['email']; ?></p>
-                <p class="review-content"><?php echo $value['contentcm']; ?></p>
-            </li>
-        </ol>
-    <?php endforeach; ?>
+    <?php if (!empty($item[0]['email'])): ?>
+        <!--Hien thi comment khi co du lieu-->
+        <?php foreach ($item as $key => $value): ?>
+            <ol class="items review-item">
+                <li class="item">
+                    <p class="review-title"><?php echo $value['email']; ?></p>
+                    <p class="review-content"><?php echo $value['contentcm']; ?></p>
+                </li>
+            </ol>
+        <?php endforeach; ?>
     <?php endif ?>
 </div>

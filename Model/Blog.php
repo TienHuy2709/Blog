@@ -1,10 +1,12 @@
 <?php
+
 namespace AHT\Blog\Model;
 
 use \Magento\Framework\DataObject\IdentityInterface;
 use AHT\Blog\Api\Data\BlogInterface;
 
-class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, BlogInterface {
+class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInterface, BlogInterface
+{
     const CACHE_TAG = 'aht_blog_post';
 
     protected $_cacheTag = 'aht_blog_post';
@@ -19,10 +21,13 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection =
         null,
         array $data = []
-    ) {
-        parent::__construct($context, $registry, $resource,$resourceCollection, $data);
+    )
+    {
+        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }
-    public function _construct() {
+
+    public function _construct()
+    {
         $this->_init('AHT\Blog\Model\ResourceModel\Blog');
     }
 
@@ -42,6 +47,7 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
     {
         return $this->getData('id');
     }
+
     public function setId($id)
     {
         $this->setData('id', $id);
@@ -51,6 +57,7 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
     {
         return $this->getData('title');
     }
+
     public function setTitle($title)
     {
         $this->setData('title', $title);
@@ -60,6 +67,7 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
     {
         return $this->getData('images');
     }
+
     public function setImages($images)
     {
         $this->setData('images', $images);
@@ -69,6 +77,7 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
     {
         return $this->getData('description');
     }
+
     public function setDescription($description)
     {
         $this->setData('description', $description);
@@ -78,6 +87,7 @@ class Blog extends \Magento\Framework\Model\AbstractModel implements IdentityInt
     {
         return $this->getData('content');
     }
+
     public function setContent($content)
     {
         $this->setData('content', $content);

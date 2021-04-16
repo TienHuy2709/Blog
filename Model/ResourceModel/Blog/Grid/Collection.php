@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Model\ResourceModel\Blog\Grid;
 
 use AHT\Blog\Model\Blog;
@@ -47,28 +48,38 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         $resourceModel,
         Blog $blogModel,
         \Magento\Framework\Stdlib\DateTime\DateTime $date
-    ) {
+    )
+    {
         $this->date = $date;
         $this->blogModel = $blogModel;
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
     }
-    public function setBlogId($id){
+
+    public function setBlogId($id)
+    {
         $this->id = $id;
     }
 
-    public function getBlogId(){
+    public function getBlogId()
+    {
         return $this->id;
     }
+
+    protected function _initSelect()
+    {
+        $this->getSelect()
+            ->from(['main_table' => 'aht_blog'])
+            ->order('id' . ' ' . \Magento\Framework\DB\Select::SQL_DESC);
+        $this->addFilterToMap('id', 'main_table.id');
+        return $this;
+    }
+
     public function selectById()
     {
         $select = $this->getConnection()
-
             ->select()
-
             ->from($this->getMainTable())
-
-            ->where( 'aht_comment.blogid'. '=?', $this->id)
-
+            ->where('aht_comment.blogid' . '=?', $this->id)
             ->join('aht_comment',
 
                 'aht_blog.id = aht_comment.blogid',

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">aht_comment_form.aht_comment_form_data_source</item>
@@ -88,7 +89,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="AHT\Blog\Ui\Component\Blog\Column\ListOptionForm" />
+                        <options class="AHT\Blog\Ui\Component\Blog\Column\ListOptionForm"/>
                         <caption translate="true">-- Please Select --</caption>
                     </settings>
                 </select>

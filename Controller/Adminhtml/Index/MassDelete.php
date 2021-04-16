@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Controller\Adminhtml\Index;
 
 use AHT\Blog\Model\ResourceModel\Blog\CollectionFactory;
@@ -18,7 +19,8 @@ class MassDelete extends \Magento\Backend\App\Action
         Filter $filter,
         CollectionFactory $collectionFactory,
         BlogFactory $_postFactory
-    ) {
+    )
+    {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         $this->_postFactory = $_postFactory;
@@ -71,6 +73,7 @@ class MassDelete extends \Magento\Backend\App\Action
         }
         return $resultRedirect->setPath('*/*/');
     }
+
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('AHT_Blog::delete');

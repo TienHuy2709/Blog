@@ -25,7 +25,8 @@ class Upload extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \AHT\Blog\Model\Blog\ImageUploader $imageUploader
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
     }

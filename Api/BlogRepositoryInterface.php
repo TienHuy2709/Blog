@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -19,7 +20,8 @@ interface BlogRepositoryInterface
      *
      * @return \AHT\Blog\Api\Data\BlogInterface
      */
-    public function getById(String $id);
+    public function getById(string $id);
+
     /**
      * Get All
      *
@@ -44,7 +46,7 @@ interface BlogRepositoryInterface
      *
      * @return null
      */
-    public function updatePost(String $id, \AHT\Blog\Api\Data\BlogInterface $post);
+    public function updatePost(string $id, \AHT\Blog\Api\Data\BlogInterface $post);
 
     /**
      * Delete Post by ID.

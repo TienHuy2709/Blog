@@ -3,6 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace AHT\Blog\Model\Blog;
 
 use AHT\Blog\Model\ResourceModel\Blog\CollectionFactory;
@@ -33,6 +34,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
     protected $loadedData;
     private $fileInfo;
     protected $_storeManager;
+
     /**
      * Constructor
      *
@@ -55,7 +57,8 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
         array $meta = [],
         array $data = [],
         PoolInterface $pool = null
-    ) {
+    )
+    {
         $this->collection = $blockCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
         $this->_storeManager = $storeManager;
@@ -70,7 +73,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
             $stat = $this->getFileInfo()->getStat($fileName);
             $mime = $this->getFileInfo()->getMimeType($fileName);
             $image[0]['name'] = $fileName;
-            $image[0]['url'] = $this->_storeManager->getStore()->getBaseUrl()."pub/media/blog/index/".$fileName;
+            $image[0]['url'] = $this->_storeManager->getStore()->getBaseUrl() . "pub/media/blog/index/" . $fileName;
             $image[0]['size'] = isset($stat) ? $stat['size'] : 0;
             $image[0]['type'] = $mime;
         }
@@ -78,6 +81,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
 
         return $banner;
     }
+
     /**
      * Get data
      *
@@ -105,6 +109,7 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
 
         return $this->loadedData;
     }
+
     private function getFileInfo()
     {
         if ($this->fileInfo === null) {

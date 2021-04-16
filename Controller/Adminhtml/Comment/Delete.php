@@ -22,7 +22,7 @@ class Delete extends \Magento\Backend\App\Action
         $blogId = (int)$this->getRequest()->getParam('id');
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
-        if ($blogId && (int) $blogId > 0) {
+        if ($blogId && (int)$blogId > 0) {
             try {
                 $model = $this->_objectManager->create('AHT\Blog\Model\Comment');
                 $model->load($blogId);

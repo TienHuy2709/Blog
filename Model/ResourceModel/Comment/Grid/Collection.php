@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Model\ResourceModel\Comment\Grid;
 
 use AHT\Blog\Model\Comment;
@@ -48,18 +49,23 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         $resourceModel,
         Comment $commentModel,
         \Magento\Framework\Stdlib\DateTime\DateTime $date
-    ) {
+    )
+    {
         $this->date = $date;
         $this->commentModel = $commentModel;
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $mainTable, $resourceModel);
     }
-    public function setBlogId($id){
+
+    public function setBlogId($id)
+    {
         $this->id = $id;
     }
 
-    public function getBlogId(){
+    public function getBlogId()
+    {
         return $this->id;
     }
+
     protected function _initSelect()
     {
         $this->getSelect()

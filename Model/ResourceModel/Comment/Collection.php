@@ -1,4 +1,5 @@
 <?php
+
 namespace AHT\Blog\Model\ResourceModel\Comment;
 
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection

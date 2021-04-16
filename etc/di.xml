@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <!-- Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
     <!-- Fix for ui_component aht_blog_listing.xml -->
     <!-- Configure our grid collection -->
@@ -26,7 +27,9 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="aht_blog_listing_data_source" xsi:type="string">AHT\Blog\Model\ResourceModel\Blog\Grid\Collection</item>
+                <item name="aht_blog_listing_data_source" xsi:type="string">
+                    AHT\Blog\Model\ResourceModel\Blog\Grid\Collection
+                </item>
             </argument>
         </arguments>
     </type>
@@ -34,20 +37,22 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="aht_comment_listing_data_source" xsi:type="string">AHT\Blog\Model\ResourceModel\Comment\Grid\Collection</item>
+                <item name="aht_comment_listing_data_source" xsi:type="string">
+                    AHT\Blog\Model\ResourceModel\Comment\Grid\Collection
+                </item>
             </argument>
         </arguments>
     </type>
     <!-- End Configure -->
     <!-- API -->
-    <preference for="AHT\Blog\Api\BlogRepositoryInterface" type="AHT\Blog\Model\BlogRepository" />
+    <preference for="AHT\Blog\Api\BlogRepositoryInterface" type="AHT\Blog\Model\BlogRepository"/>
     <preference for="AHT\Blog\Api\Data\BlogInterface" type="AHT\Blog\Model\Blog"/>
-    <preference for="AHT\Blog\Api\CommentRepositoryInterface" type="AHT\Blog\Model\CommentRepository" />
+    <preference for="AHT\Blog\Api\CommentRepositoryInterface" type="AHT\Blog\Model\CommentRepository"/>
     <preference for="AHT\Blog\Api\Data\CommentInterface" type="AHT\Blog\Model\Comment"/>
 
     <!-- Plugin -->
     <type name="AHT\Blog\Model\Blog">
-        <plugin name="blog_name1" type="AHT\Blog\Plugin\Blog1" sortOrder="1" />
+        <plugin name="blog_name1" type="AHT\Blog\Plugin\Blog1" sortOrder="1"/>
     </type>
 </config>
 

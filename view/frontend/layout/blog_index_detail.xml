@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>Detail Blog</title>
     </head>
     <body>
         <referenceContainer name="sidebar.additional" remove="true"/>
         <referenceContainer name="content">
-            <block class="AHT\Blog\Block\Frontend\Blog\Detail" name="aht_blog_detail" template="blog/detail.phtml" />
-            <block class="AHT\Blog\Block\Frontend\Blog\Detail" name="aht_blog_comment" after="aht_blog_detail" template="blog/comment.phtml" />
+            <block class="AHT\Blog\Block\Frontend\Blog\Detail" name="aht_blog_detail" template="blog/detail.phtml"/>
+            <block class="AHT\Blog\Block\Frontend\Blog\Detail" name="aht_blog_comment" after="aht_blog_detail"
+                   template="blog/comment.phtml"/>
         </referenceContainer>
     </body>
 </page>
