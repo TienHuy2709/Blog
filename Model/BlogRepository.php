@@ -5,6 +5,7 @@ namespace AHT\Blog\Model;
 use AHT\Blog\Api\Data;
 use AHT\Blog\Api\BlogRepositoryInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+use Magento\Framework\Exception\AbstractAggregateException;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -68,13 +69,18 @@ class BlogRepository implements BlogRepositoryInterface
      */
     public function save(BlogInterface $post)
     {
-        try {
-            $this->resource->save($post);
-        } catch (\Exception $exception) {
-            throw new CouldNotSaveException(
-                __('Could not save the Post: %1', $exception->getMessage()),
-                $exception
-            );
+        if(empty($post->getContent())) {
+            new NoSuchEntityException(__('The Blog with the "%1" ID doesn\'t exist.', $post));
+        }
+        else {
+            try {
+                $this->resource->save($post);
+            } catch (\Exception $exception) {
+                throw new CouldNotSaveException(
+                    __('Could not save the Post: %1', $exception->getMessage()),
+                    $exception
+                );
+            }
         }
         return $post;
     }
@@ -117,19 +123,29 @@ class BlogRepository implements BlogRepositoryInterface
      */
     public function createPost(BlogInterface $post)
     {
-        try {
-            $this->resource->save($post);
-        } catch (\Exception $exception) {
-            throw new CouldNotSaveException(
-                __('Could not save the Post: %1', $exception->getMessage()),
-                $exception
-            );
+        $status = '';
+        $mm = '';
+        if(empty($post->getContent())) {
+            $status = 400;
+            $mm = 'error';
+        }
+        else {
+            try {
+                $this->resource->save($post);
+                $status = 200;
+                $mm = $post->getData();
+            } catch (\Exception $exception) {
+                throw new CouldNotSaveException(
+                    __('Could not save the Post: %1', $exception->getMessage()),
+                    $exception
+                );
+            }
+
         }
         return json_encode(array(
-            "status" => 200,
-            "message" => $post->getData()
+            "status" => $status,
+            "message" => $mm
         ));
-
     }
 
 

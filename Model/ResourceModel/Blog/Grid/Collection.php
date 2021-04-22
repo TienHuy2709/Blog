@@ -65,15 +65,6 @@ class Collection extends \Magento\Framework\View\Element\UiComponent\DataProvide
         return $this->id;
     }
 
-    protected function _initSelect()
-    {
-        $this->getSelect()
-            ->from(['main_table' => 'aht_blog'])
-            ->order('id' . ' ' . \Magento\Framework\DB\Select::SQL_DESC);
-        $this->addFilterToMap('id', 'main_table.id');
-        return $this;
-    }
-
     public function selectById()
     {
         $select = $this->getConnection()
